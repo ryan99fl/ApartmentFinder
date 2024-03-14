@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ApartmentFinder.Models.ListingUtility>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UtilityID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ListingID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UtilitiesEstimate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UtilityID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ListingID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UtilitiesEstimate)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ServiceID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ServiceID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ServiceID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
